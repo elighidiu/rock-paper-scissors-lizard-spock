@@ -1,8 +1,8 @@
 var array  = ["rock", "paper", "scissors", "lizard", "spock"]; // Array of possible moves that the computer can make
 var length = array.length;
 
-let wins = 0;
-let winsc = 0;
+var wins = 0;
+var winsc = 0;
 
 //var rchoice= array[random];
 
@@ -47,10 +47,7 @@ document.getElementById("spock").addEventListener("click", function () {
 });
 
 document.getElementById("reset").addEventListener("click", function () {
-    let wins = 0;
-    let winsc = 0;
-    document.getElementById("score").innerText=`Your score is: ${wins}` ;
-    document.getElementById("scorec").innerText=`Computer score is: ${winsc}` 
+    window.location.reload();
         
 });
 
@@ -70,4 +67,25 @@ let winner =  function getWinner(playerMove, computerMove) {
         document.getElementById("result").innerText = `You played ${playerMove}, Computer played ${computerMove}. \n You lost!`
         document.getElementById("scorec").innerText=`Computer score is: ${winsc}` 
     }
+}
+
+// Get the container element
+var btnContainer = document.getElementById("myDIV");
+
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.getElementsByClassName("btn");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+
+    // If there's no active class
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" active", "");
+    }
+
+    // Add the active class to the current/clicked button
+    this.className += " active";
+  });
 }
